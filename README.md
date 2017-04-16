@@ -1,11 +1,9 @@
 # PPG-17
 Parallele Programmierung für Geowissenschaftler 2017
 
-### TO DO
-Bei meinem Game of Life klappt bisher einzig das Modul mod_lifeCycle ganz gut.
-Es fehlt: 
-- eine vernünftige Ausgabe (Das mit dem printTwoDDigital habe ich nicht geblickt.)
-- Einbindung der Figuren
+### TO DO 
+- Das mit dem printTwoDDigital habe ich nicht geblickt. Deshalb habe ich ein eigenes Modul geschrieben. Aktuell läuft es 1000 mal durch. Man muss ENTER drücken, dann läuft es weiter.
+- Einbindung der Figuren bisher nur direkt im Quelltext der Datei main.f90
 
 ### nützliche Links
 - https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#code
