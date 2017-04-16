@@ -1,7 +1,6 @@
 PROGRAM main
 	IMPLICIT NONE
-	
-	!! SETUP
+	!	
 	! Schleifenvariable
 	INTEGER :: i = 0
 	! Laufvariable
@@ -15,7 +14,6 @@ PROGRAM main
 		output(i) = 0
 	END DO
 
-	!! UMLAGERN
 	DO WHILE (baseK > 0)
 		! Index anpassen
 		index = index + 2
