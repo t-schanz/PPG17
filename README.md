@@ -10,4 +10,5 @@ Es fehlt:
 ### nützliche Links
 - https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#code
 - http://www.tutorialspoint.com/git/git_quick_guide.htm
+- https://wr.informatik.uni-hamburg.de/teaching/sommersemester_2017/einfuehrung_in_parallele_programmierung_fuer_geowissenschaftler
 
