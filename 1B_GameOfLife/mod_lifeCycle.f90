@@ -4,11 +4,16 @@ MODULE mod_lifecycle
 	USE mod_cellNeighbours
 	
 	IMPLICIT NONE
+	PRIVATE :: countNeighbours
+	PRIVATE :: cellNeighbours
+	PUBLIC :: developLife
 
 	CONTAINS
 
 	! Erstellt ein Skalarfeld mit den Anzahlen der Nachbarn
 	!  jeder Zelle des Spielfeld
+	! field: Spielfeld, wird nicht modifiziert
+	! neighbourfield: Skalarfeld 
 	!
 	SUBROUTINE countNeighbours (field, neighbourField)
 		IMPLICIT NONE
@@ -23,7 +28,7 @@ MODULE mod_lifecycle
 		DO i = 1, 30
 			DO j = 1, 20
 				n = 0
-				CALL neighbours(field, i, j, n)
+				CALL cellNeighbours(field, i, j, n)
 				neighbourField(i,j) = n
 			END DO
 		END DO
@@ -32,7 +37,7 @@ MODULE mod_lifecycle
 
 	! Wendet die Regeln von Convays Game of Life 
 	!  auf das Spielfeld an.
-	SUBROUTINE developLife (field, neighbourField)
+	SUBROUTINE developLife (field)
 		IMPLICIT NONE
 		!
 		LOGICAL, DIMENSION(30, 20) :: field
