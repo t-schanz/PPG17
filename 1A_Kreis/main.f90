@@ -2,19 +2,16 @@ PROGRAM main
 	IMPLICIT NONE
 	
 	!! SETUP
-	! Kardinalitäten
-	INTEGER :: baseK = 32, outputK = 0
 	! Schleifenvariable
 	INTEGER :: i = 0
 	! Laufvariable
 	INTEGER :: index = 1
-	! Arrays
+	! Arrays und Kardinalitäten
 	INTEGER, DIMENSION (1:32) :: base, output
+	INTEGER :: baseK = 32, outputK = 0
 	! Initialisierung der Arrays
 	DO i = 1, 32
 		base(i) = i
-	END DO
-	DO i = 1, 32
 		output(i) = 0
 	END DO
 
