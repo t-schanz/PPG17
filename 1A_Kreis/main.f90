@@ -37,7 +37,10 @@ PROGRAM main
 	END DO
 
 	!! PRESENTATION DER DATEN
-	PRINT *, "Reihenfolge, in der die Personen den Kreis verlassen:"
-	PRINT *, output
+	PRINT *,'Reihenfolge jeder 3. Person im Kreis'
+	PRINT *,'      Index', ' Reihenfolge'
+	DO, i=1,32 ! Kontrollstruktur zum Drucken der Liste auf Konsole
+		PRINT *, i, output(i)
+	END DO
 
 END PROGRAM main
