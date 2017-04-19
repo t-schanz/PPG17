@@ -1,32 +1,37 @@
-PROGRAM main
-		
-	USE mod_lifeCycle
-	USE mod_print
-	USE mod_initializeField
+program main
+	use mod_initializeField
+	use mod_lifecycle
+	implicit none
 
-	IMPLICIT NONE
-	!
 	! Spielfeld
-	LOGICAL, DIMENSION(30, 20) :: spielFeld
-	! Position der Figur
-	INTEGER :: xPosition = 3 
-	INTEGER :: yPosition = 3
-	! gewünschtes Muster
-	! 1 = blinker
-	! 2 = toad
-	! 3 = beacon
-	! 4 = glider
-	INTEGER :: pattern = 3
+	logical, dimension(:,:), pointer :: world
+	! Lenkt Ausgabe auf Konsole
+	integer :: outputUnit = 6
 	! Schleifenvariable
-	INTEGER :: i
+	integer :: i
 
+	! Umstellen des Zeichensatzes auf UTF-8 für stdout (nötig für printTwoDLogical)
+	open(outputUnit, encoding='UTF-8')  
 
-	CALL createField(spielFeld)
-	CALL createFigures(spielFeld, xPosition, yPosition, pattern)
-	
-	DO i = 0, 999
-		CALL developLife(spielFeld)
-		CALL print2D(spielFeld)
-	END DO	
+	! Subroutine in mod_initializeField inizilisiert Matrix world
+	! gibt Matrix zurück
+	call createField(world)
+	! Subroutine in mod_initializeField belegt Matrix world mit figuren
+	! gibt Matrix zurück
+	call createFigures(world)
 
-END PROGRAM main
+	! Subroutine in mod_initializeField gibt world auf Konsole aus
+	call printTwoDLogical(outputUnit, world) 
+
+	do i = 1,10
+		! Subroutine in mod_lifecycle "Entwickelt leben" in Matrix world
+		! gibt Matrix um ein lebenschritt weiter zurück
+		call developeLife(world)
+		! Subroutine in mod_initializeField gibt world auf Konsole aus
+		call printTwoDLogical(outputUnit, world)
+	end do
+
+	call portable_sleep(0.3)
+	deallocate(world)
+
+end program
