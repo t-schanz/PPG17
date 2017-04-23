@@ -73,11 +73,11 @@ contains
 
 		neighbors = 0
 
-		! counting of alive neighbours over 3x3 box  
+		! Abzaehlen der lebenden Zellen in 3x3 Box  
 		! Beginnt bei posX, das entspricht der Matrix in developeLife 
 		! der Zelle posX-1, da beim uebergeben der Matrix mit der 
 		! Dimension (0:X,0:Y) eine Matrix mit der Dimension (1:x+1, 
-		! 1:y+1)
+		! 1:y+1) ensteht
 		do i = posX,posX+2
 			do j = posY,posY+2
 				if(matrix(i,j).eqv. .true.) then       
