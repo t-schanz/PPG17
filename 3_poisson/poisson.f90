@@ -15,7 +15,8 @@ PROGRAM Poisson
 		!print *, "run ", i
 		call calculate(matrix,checkExit)
                 if (checkExit) then
-                    write(*,*) 'Abbruchbedingung nach ' , i , 'Durchläufen erfüllt.'
+                    write(*,*) 'Abbruchbedingung nach ' , i+1 , 'Durchläufen erfüllt.'  !i+1 da bei 0 angefangen
+                                                                                        !wird zu zählen.
                     exit
                 endif
 	end do
