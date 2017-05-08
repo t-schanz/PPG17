@@ -14,7 +14,7 @@ program calc_pi
 	! performance measurement:
 	real :: startTime, endTime
 	double precision, parameter :: pibel = 3.1415926535897932 ! Pi aus von pible.de zur Messung der Genauigkeit
-	cpu_time(starttime)
+	call cpu_time(starttime)
 
 	call MPI_INIT(ierr)
 	! Rank und Size in Erfahrung bringen
