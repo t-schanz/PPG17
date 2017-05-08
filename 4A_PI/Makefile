@@ -1,12 +1,16 @@
-main.x: main.f90 mod_calculate.o
-	mpif90 -o main.x main.f90 mod_calculate.o
+#Compiler
+FC="mpif90"
+#Number of used Processors
+KC=4
 
-mod_calculate.o: mod_calculate.f90
-	f95 -c mod_calculate.f90
+main.x: main.f90 mod_calc.o
+        $(FC) -o main.x main.f90 mod_calc.o
 
+mod_calc.o: mod_calc.f90
+        $(FC) -c mod_calc.f90
 
 run: main.x
-	mpiexec -n 4 ./main.x
+        mpiexec -n $(KC) ./main.x
 
-clean: 
-	rm *.mod *.o main.x
+clean:
+        rm main.x *.mod *.o
