@@ -6,8 +6,8 @@ KC=4
 main.x: main.f90 mod_calc.o
         $(FC) -o main.x main.f90 mod_calc.o
 
-mod_calc.o: mod_calc.f90
-        $(FC) -c mod_calc.f90
+mod_calculate.o: mod_calculate.f90
+        $(FC) -c mod_calculate.f90
 
 run: main.x
         mpiexec -n $(KC) ./main.x
