@@ -17,12 +17,12 @@ MODULE initialize
         subroutine initMatrix(matrix)
                 integer, allocatable, dimension(:,:), intent(inout) :: matrix
                 integer :: i,j,counter    !schleifenvariable
-                counter = 1
+                counter = ubound(matrix,1) *ubound(matrix,2)
                 
                 do j=lbound(matrix,2),ubound(matrix,2)
                     do i=lbound(matrix,1), ubound(matrix,1)
                         matrix(i,j) = counter
-                        counter = counter + 1    
+                        counter = counter - 1     
                     enddo
                 enddo
 
