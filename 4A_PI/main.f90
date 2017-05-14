@@ -22,13 +22,16 @@ program calc_pi
 	call MPI_COMM_RANK(MPI_COMM_WORLD,rank,ierr)
 	call MPI_COMM_SIZE(MPI_COMM_WORLD,size,ierr)
 
+	lowerBoundary = real(rank)/real(size)
+	upperBoundary = real(rank+1)/real(size)
+
+
 	if (rank .ne. master) then
 		Abschnitt = 0
-		lowerBoundary = real(rank-1)/real(size-1)
-		upperBoundary = real(rank)/real(size-1)
 		call func(lowerBoundary, upperBoundary, Abschnitt, anzahlStuetzpunkte)
 		call MPI_SEND(Abschnitt,1,MPI_DOUBLE_PRECISION,master,2017,MPI_COMM_WORLD,ierr)
 	else
+		call func(lowerBoundary, upperBoundary, piSumme, anzahlStuetzpunkte)
 		do i = 1, size -1
 			call MPI_RECV(Abschnitt,1,MPI_DOUBLE_PRECISION,i,2017,MPI_COMM_WORLD,status,ierr)
 			piSumme = piSumme + Abschnitt
