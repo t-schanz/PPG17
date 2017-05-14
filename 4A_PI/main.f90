@@ -2,6 +2,7 @@ program calc_pi
 	use mpi
 	use mod_calculate
 
+
 	implicit none
 
 	double precision :: Abschnitt = 0, message, piSumme = 0
@@ -42,5 +43,6 @@ program calc_pi
 		print *, "(Referenzwert für Pi von pibel.de)"
 	endif
 	call MPI_FINALIZE(ierr)
+
 
 end program calc_pi
