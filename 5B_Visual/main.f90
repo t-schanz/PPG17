@@ -42,6 +42,16 @@ program calc_pi
 
             call MPI_BARRIER(MPI_COMM_WORLD,ierr)
 
+            if (rank .eq. master) then
+                single_int = 7
+                do i=1,size-1
+                    call MPI_SEND(single_int,1,MPI_INTEGER,i,3,MPI_COMM_WORLD,ierr)
+                enddo
+            else
+                call MPI_RECV(single_int,1,MPI_INTEGER,master,3,MPI_COMM_WORLD,status,ierr)
+                write(*,*) single_int
+            endif
+
 
 
 	call MPI_FINALIZE(ierr)
