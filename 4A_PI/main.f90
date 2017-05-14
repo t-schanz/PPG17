@@ -45,6 +45,8 @@ program calc_pi
 		print *, "Abweichung von Pi:      ", (pibel - piSumme)
 		print *, "(Referenzwert für Pi von pibel.de)"
 	endif
+
+        call sleep(1)
 	call MPI_FINALIZE(ierr)
 
 

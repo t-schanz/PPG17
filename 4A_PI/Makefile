@@ -4,7 +4,7 @@ FC="mpif90"
 KC=4
 
 main.x: main.f90 mod_calculate.o
-	$(FC) -o main.x main.f90 mod_calculate.o
+	scorep $(FC) -o main.x main.f90 mod_calculate.o
 
 mod_calculate.o: mod_calculate.f90
 	$(FC) -c mod_calculate.f90
