@@ -1,4 +1,4 @@
-main.x: main.f90 
+main.x: main.f90
 	scorep mpif90 -o main.x main.f90 
 
 
