@@ -16,10 +16,10 @@ program scatter
         call MPI_COMM_SIZE(MPI_COMM_WORLD,size,ierr)
         call MPI_COMM_RANK(MPI_COMM_WORLD,rank,ierr)
 
-        !if (rank .eq. master) then  !Der Master initialisiert die Hauptmatrix
+        if (rank .eq. master) then  !Der Master initialisiert die Hauptmatrix
                 call createMatrix(matrix_big, MATRIX_SIZE,MATRIX_SIZE)
                 call initMatrix(matrix_big)
-        !endif
+        endif
 
         !if (rank .eq. 1) then   !nebenbei initialisiert proc1 sendcounts und displacement
             call initSendcounts(sendcounts, MATRIX_SIZE,size)
